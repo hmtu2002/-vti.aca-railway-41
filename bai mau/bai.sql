@@ -162,6 +162,7 @@ insert into exam(`code`, duration, create_date) values
     ('VA000775', '00:59:59', '2020-05-18') 
 ;
 
+
 SELECT * from `account` WHERE length(fullname)=(SELECT max(length(fullname)) FROM `account`); 
 
 SELECT * from `account` WHERE length(fullname) = (select max(length(fullname)) from `account` where department_ID=3) and department_ID=3;
@@ -170,9 +171,21 @@ SELECT * from `account` WHERE length(fullname) = (select max(length(fullname)) f
 SELECT max(length(fullname)) FROM `account`;
 
 
-SELECT * from `group`;
+SELECT * from question;
 
 
 UPDATE `account` set fullname='nguyen ba loc' , email = 'nguyenbaloc@gmail.com' where account_id = 1005;
 
 INSERT into `group`(group_id) values (5);
+
+SELECT * from department  INNER JOIN account on department.Department_ID = account.Account_ID;
+
+SELECT * from department;
+
+
+SELECT A.FullName, A.Email, P.PositionName
+FROM `Account` A
+INNER JOIN Position P ON A.PositionID = P.PositionID
+WHERE P.PositionName = 'Dev';
+
+
